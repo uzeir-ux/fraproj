@@ -1,0 +1,62 @@
+﻿<Window x:Class="ProjectManagerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title=" " Height="450" Width="900"
+        WindowStyle="None" AllowsTransparency="True"
+        Background="Transparent">
+    
+    <Border CornerRadius="10" Background="#FF252526" BorderBrush="#FF3E3E40" BorderThickness="1">
+        <Grid>
+            <Border Background="#FF1E1E1E" Opacity="0.7">
+                <Border.Effect>
+                    <BlurEffect Radius="10"/>
+                </Border.Effect>
+            </Border>
+
+            <Grid Margin="10">
+                <!-- Левая панель с кнопками -->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button Name="AddProjectButton" Content="+" 
+                            Style="{StaticResource HolographicButton}" 
+                            Click="AddProjectButton_Click" ToolTip="Добавить проект"/>
+                    
+                    <Button Name="EditProjectButton" Content="✎" 
+                            Style="{StaticResource HolographicButton}" 
+                            Click="EditSelectedProject_Click" ToolTip="Редактировать проект"
+                            Margin="0,10,0,0"/>
+                    
+                    <Button Name="DeleteProjectButton" Content="🗑" 
+                            Style="{StaticResource HolographicButton}" 
+                            Click="DeleteSelectedProject_Click" ToolTip="Удалить проект"
+                            Margin="0,10,0,0"/>
+                    
+                    <Button Name="RefreshButton" Content="↻" 
+                            Style="{StaticResource HolographicButton}" 
+                            Click="RefreshButton_Click" ToolTip="Применить изменения"
+                            Margin="0,10,0,0"/>
+                    
+                    <Button Name="ExitButton" Content="×" 
+                            Style="{StaticResource HolographicButton}" 
+                            Click="ExitButton_Click" ToolTip="Выход"
+                            Margin="0,10,0,0"/>
+                </StackPanel>
+
+                <!-- Таблица проектов -->
+                <DataGrid Name="ProjectsDataGrid" Margin="50,10,10,10" 
+                          AutoGenerateColumns="False" IsReadOnly="True"
+                          SelectionMode="Single" SelectionUnit="FullRow">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Название проекта" Binding="{Binding ProjectName}" Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Заголовок" Binding="{Binding Title}" Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Автор" Binding="{Binding Author}" Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Git" Binding="{Binding GitLink}" Width="*" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}" Width="*" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

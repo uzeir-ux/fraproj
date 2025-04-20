@@ -1,0 +1,47 @@
+<Window x:Class="ProjectManagerApp.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title=" " Height="350" Width="400"
+        WindowStyle="None" AllowsTransparency="True" 
+        Background="Transparent" WindowStartupLocation="CenterScreen">
+    
+    <Border CornerRadius="15" Background="#FF222222" BorderBrush="#FF555555" BorderThickness="1">
+        <Grid>
+            <Border CornerRadius="15" Opacity="0.8" Background="#FF111111">
+                <Border.Effect>
+                    <BlurEffect Radius="5"/>
+                </Border.Effect>
+            </Border>
+            
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+                <TextBlock Text="Доступ к системе" Foreground="#FF00FFAA" FontSize="18" FontWeight="Bold"
+                           HorizontalAlignment="Center" Margin="0,0,0,20">
+                    <TextBlock.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" 
+                                                     From="0" To="1" Duration="0:0:1.5"/>
+                                    <ColorAnimation Storyboard.TargetProperty="Foreground.Color"
+                                                    From="#FF000000" To="#FF00FFAA" 
+                                                    Duration="0:0:2" AutoReverse="True" RepeatBehavior="Forever"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </TextBlock.Triggers>
+                </TextBlock>
+
+                <PasswordBox Name="PasswordBox" Margin="0,10" 
+                            Style="{StaticResource StealthPasswordBox}"/>
+
+                <Button Name="ShowPasswordButton" Content="Показать" 
+                        Margin="0,10" Width="100" HorizontalAlignment="Right"
+                        Style="{StaticResource HolographicButton}"
+                        Click="ShowPasswordButton_Click"/>
+
+                <Button Name="LoginButton" Content="Вход" Margin="0,20" 
+                        Style="{StaticResource HolographicButton}" Click="LoginButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
