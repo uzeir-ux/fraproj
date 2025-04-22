@@ -1,0 +1,39 @@
+﻿<Window x:Class="ProjectManagerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Главное меню" Height="400" Width="900">
+    <Grid>
+        <!-- Кнопки для действия с проектами -->
+        <Button Name="AddProjectButton" Content="Добавить запись" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0" Width="150" Height="40" Click="AddProjectButton_Click" Background="Yellow"/>
+        <Button Name="ExitButton" Content="Выход" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,60,0,0" Width="150" Height="40" Click="ExitButton_Click" Background="Red"/>
+        <Button Name="RefreshButton" Content="Обновить" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,110,0,0" Width="150" Height="40" Click="RefreshButton_Click" Background="Green"/>
+
+        <!-- DataGrid для отображения проектов -->
+        <DataGrid Name="ProjectsDataGrid" Margin="200,10,10,10" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="*" />
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="*" />
+                <DataGridTextColumn Header="Название проекта" Binding="{Binding ProjectName}" Width="*" />
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*" />
+                <DataGridTextColumn Header="Заголовок" Binding="{Binding Title}" Width="*" />
+                <DataGridTextColumn Header="Автор" Binding="{Binding Author}" Width="*" />
+                <DataGridTextColumn Header="Git" Binding="{Binding GitLink}" Width="*" />
+                <DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}" Width="*" />
+
+                <!-- Колонки для кнопок редактирования и удаления -->
+                <DataGridTemplateColumn Header="Действия" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <!-- Кнопка для редактирования -->
+                                <Button Content="Редактировать" Width="80" Margin="5" Click="EditButton_Click"/>
+                                <!-- Кнопка для удаления -->
+                                <Button Content="Удалить" Width="80" Margin="5" Click="DeleteButton_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

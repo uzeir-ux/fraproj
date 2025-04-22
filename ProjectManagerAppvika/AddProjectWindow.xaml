@@ -1,0 +1,53 @@
+<Window x:Class="ProjectManagerApp.AddProjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавить проект" Height="750" Width="400" WindowStartupLocation="CenterOwner">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="10">
+
+            <TextBlock Text="ID проекта:"/>
+            <TextBox Name="ProjectIdTextBox" IsReadOnly="True"/>
+
+            <TextBlock Text="Дата:" Margin="0,10,0,0"/>
+            <TextBox Name="DateTextBox" IsReadOnly="True"/>
+
+            <TextBlock Text="Название проекта:" Margin="0,10,0,0"/>
+            <TextBox Name="ProjectNameTextBox"/>
+
+            <TextBlock Text="Описание:" Margin="0,10,0,0"/>
+            <TextBox Name="DescriptionTextBox"/>
+
+            <TextBlock Text="Заголовок:" Margin="0,10,0,0"/>
+            <TextBox Name="TitleTextBox"/>
+
+            <TextBlock Text="Автор:" Margin="0,10,0,0"/>
+            <TextBox Name="AuthorTextBox"/>
+
+            <TextBlock Text="Git-ссылка:" Margin="0,10,0,0"/>
+            <TextBox Name="GitLinkTextBox"/>
+
+            <TextBlock Text="Комментарий:" Margin="0,10,0,0"/>
+            <TextBox Name="CommentTextBox"/>
+
+            <TextBlock Text="Путь к установщику:" Margin="0,10,0,0"/>
+            <TextBox Name="InstallerPathTextBox"/>
+
+            <TextBlock Text="URL:" Margin="0,10,0,0"/>
+            <TextBox Name="UrlTextBox"/>
+
+            <TextBlock Text="Домен:" Margin="0,10,0,0"/>
+            <TextBox Name="DomainTextBox"/>
+
+            <TextBlock Text="База данных:" Margin="0,10,0,0"/>
+            <TextBox Name="DatabaseTextBox"/>
+
+            <TextBlock Text="Порт:" Margin="0,10,0,0"/>
+            <TextBox Name="PortTextBox"/>
+
+            <TextBlock Text="Пароль:" Margin="0,10,0,0"/>
+            <TextBox Name="PasswordTextBox"/>
+
+            <Button Content="Добавить" Margin="0,20,0,0" Height="35" Click="AddButton_Click"/>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
